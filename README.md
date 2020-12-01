@@ -1,2 +1,2 @@
-# milestone2
-.net
+# .net project
+
