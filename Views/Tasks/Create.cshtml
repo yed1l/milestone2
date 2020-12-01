@@ -1,0 +1,47 @@
+﻿@model ToDoTaskApp.Models.Task
+@{
+    ViewData["Title"] = "Create";
+}
+<h1 class="text-success">Enter to do task and click create button to store in the database</h1>
+
+<hr />
+<div class="row container" style="margin-left:25%">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TaskTitle" class="control-label">Task Title</label>
+                <input asp-for="TaskTitle" class="form-control" />
+                <span asp-validation-for="TaskTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TaskComment" class="control-label">Task Comment</label>
+                <input asp-for="TaskComment" class="form-control" />
+                <span asp-validation-for="TaskComment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TaskDate" class="control-label">Task Date</label>
+                <input asp-for="TaskDate" class="form-control" />
+                <span asp-validation-for="TaskDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TaskStatus" class="control-label">Task Status</label>
+                <select asp-for="TaskStatus" class="form-control">
+                    <option>To Do</option>
+                    <option> In Progress</option>
+                    <option> Done</option>
+                </select>
+                <span asp-validation-for="TaskStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-lg btn-warning" />
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to Task List</a>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

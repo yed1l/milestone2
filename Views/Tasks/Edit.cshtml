@@ -1,0 +1,49 @@
+﻿@model ToDoTaskApp.Models.Task
+@{
+    ViewData["Title"] = "Edit";
+}
+<h1 class="text-warning">Make your changes and click save</h1>
+<hr />
+<div class="container" style="margin-left:25%">
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="TaskId" />
+                <div class="form-group">
+                    <label asp-for="TaskTitle" class="control-label"> Task Title</label>
+                    <input asp-for="TaskTitle" class="form-control" />
+                    <span asp-validation-for="TaskTitle" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TaskComment" class="control-label">Task Comment</label>
+                    <input asp-for="TaskComment" class="form-control" />
+                    <span asp-validation-for="TaskComment" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TaskDate" class="control-label">Task Date</label>
+                    <input asp-for="TaskDate" class="form-control" />
+                    <span asp-validation-for="TaskDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TaskStatus" class="control-label">Task Status</label>
+                    <select asp-for="TaskStatus" class="form-control">
+                        <option>To Do</option>
+                        <option> In Progress</option>
+                        <option> Done</option>
+                    </select>
+                    <span asp-validation-for="TaskStatus" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-lg btn-warning" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to Task List</a>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

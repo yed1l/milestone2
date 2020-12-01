@@ -1,0 +1,43 @@
+﻿@model ToDoTaskApp.Models.Task
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+<h1 class="text-danger">Delete this task?</h1>
+<div>
+    <hr />
+    <dl class="dl-horizontal container" style="margin-left:25%;">
+        <dt>
+           Task Title
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TaskTitle)
+        </dd>
+        <dt>
+            Task Comment
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TaskComment)
+        </dd>
+        <dt>
+           Task Date
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TaskDate)
+        </dd>
+        <dt>
+           Task Status
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TaskStatus)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="TaskId" />
+        <input type="submit" value="Delete" class="btn btn-lg btn-danger" /> |
+        <a asp-action="Index">Back to Task List</a>
+    </form>
+</div>
