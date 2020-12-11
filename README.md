@@ -1,2 +1,2 @@
-# .net projec
+# .net project
 milestones
